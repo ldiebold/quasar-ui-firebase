@@ -1,0 +1,22 @@
+{
+  "name": "quasar-app-extension-quasar-ui-firebase",
+  "version": "0.0.1",
+  "description": "Simple firebase integration with the Quasar Framework",
+  "author": "luke@ldiebold.com",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": {
+    "type": "https://github.com/ldiebold/quasar-ui-firebase",
+    "url": "https://github.com/ldiebold/quasar-ui-firebase"
+  },
+  "bugs": "https://github.com/ldiebold/quasar-ui-firebase/issues",
+  "homepage": "https://quasar-firebase.netlify.app/",
+  "dependencies": {
+    "quasar-ui-quasar-ui-firebase": "latest"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  }
+}
