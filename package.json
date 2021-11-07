@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "quasar-ui-firebase-monorepo",
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-beta.27",
+    "eslint-plugin-vue": "^8.0.0",
+    "vuepress": "^2.0.0-beta.27"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "workspaces": [
+    "ui",
+    "ui/dev",
+    "app-extension",
+    "test-app"
+  ]
+}

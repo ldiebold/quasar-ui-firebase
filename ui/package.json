@@ -1,6 +1,6 @@
 {
   "name": "quasar-ui-firebase",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.5",
   "author": "luke@ldiebold.com",
   "description": "Simple firebase integration with the Quasar Framework",
   "license": "MIT",

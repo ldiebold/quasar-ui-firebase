@@ -2,8 +2,8 @@
 
 > Add a short description of your App Extension. What does it do? How is it beneficial? Why would someone want to use it?
 
-[![npm](https://img.shields.io/npm/v/quasar-app-extension-quasar-ui-firebase.svg?label=quasar-app-extension-quasar-ui-firebase)](https://www.npmjs.com/package/quasar-app-extension-quasar-ui-firebase)
-[![npm](https://img.shields.io/npm/dt/quasar-app-extension-quasar-ui-firebase.svg)](https://www.npmjs.com/package/quasar-app-extension-quasar-ui-firebase)
+[![npm](https://img.shields.io/npm/v/quasar-app-extension-firebase.svg?label=quasar-app-extension-firebase)](https://www.npmjs.com/package/quasar-app-extension-firebase)
+[![npm](https://img.shields.io/npm/dt/quasar-app-extension-firebase.svg)](https://www.npmjs.com/package/quasar-app-extension-firebase)
 
 # Install
 ```bash

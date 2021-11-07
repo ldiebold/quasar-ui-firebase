@@ -8,10 +8,11 @@
 
 function extendConf (conf) {
   // register our boot file
-  conf.boot.push('~quasar-app-extension-quasar-ui-firebase/src/boot/register.js')
+  conf.boot.push('~quasar-app-extension-firebase/src/boot/registerFirebase.js')
+  conf.boot.push('~quasar-app-extension-firebase/src/boot/registerAuthRoutes.js')
 
   // make sure app extension files & ui package gets transpiled
-  conf.build.transpileDependencies.push(/quasar-app-extension-quasar-ui-firebase[\\/]src/)
+  conf.build.transpileDependencies.push(/quasar-app-extension-firebase[\\/]src/)
 }
 
 module.exports = function (api) {
@@ -22,7 +23,7 @@ module.exports = function (api) {
   api.compatibleWith('@quasar/app', '^3.0.0')
 
   // Uncomment the line below if you provide a JSON API for your component
-  // api.registerDescribeApi('FirebaseRegisterForm', '~quasar-ui-quasar-ui-firebase/src/components/FirebaseRegisterForm.json')
+  // api.registerDescribeApi('FirebaseRegisterForm', '~quasar-ui-firebase/src/components/FirebaseRegisterForm.json')
 
   // We extend /quasar.conf.js
   api.extendQuasarConf(extendConf)

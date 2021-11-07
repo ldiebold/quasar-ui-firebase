@@ -1,7 +1,7 @@
 # Component FirebaseRegisterForm
 
-[![npm](https://img.shields.io/npm/v/quasar-ui-quasar-ui-firebase.svg?label=quasar-ui-quasar-ui-firebase)](https://www.npmjs.com/package/quasar-ui-quasar-ui-firebase)
-[![npm](https://img.shields.io/npm/dt/quasar-ui-quasar-ui-firebase.svg)](https://www.npmjs.com/package/quasar-ui-quasar-ui-firebase)
+[![npm](https://img.shields.io/npm/v/quasar-ui-firebase.svg?label=quasar-ui-firebase)](https://www.npmjs.com/package/quasar-ui-firebase)
+[![npm](https://img.shields.io/npm/dt/quasar-ui-firebase.svg)](https://www.npmjs.com/package/quasar-ui-firebase)
 
 **Compatible with Quasar UI v2 and Vue 3**.
 
@@ -21,7 +21,7 @@ Create and register a boot file:
 
 ```js
 import Vue from 'vue'
-import Plugin from 'quasar-ui-quasar-ui-firebase'
+import Plugin from 'quasar-ui-firebase'
 
 Vue.use(Plugin)
 ```
@@ -30,7 +30,7 @@ Vue.use(Plugin)
 
 ```html
 <script>
-import { Component as FirebaseRegisterForm } from 'quasar-ui-quasar-ui-firebase'
+import { Component as FirebaseRegisterForm } from 'quasar-ui-firebase'
 
 export default {
   components: {
@@ -44,7 +44,7 @@ export default {
 
 ```js
 import Vue from 'vue'
-import Plugin from 'quasar-ui-quasar-ui-firebase'
+import Plugin from 'quasar-ui-firebase'
 
 Vue.use(Plugin)
 ```
@@ -53,7 +53,7 @@ Vue.use(Plugin)
 
 ```html
 <script>
-import { Component as FirebaseRegisterForm } from 'quasar-ui-quasar-ui-firebase'
+import { Component as FirebaseRegisterForm } from 'quasar-ui-firebase'
 
 export default {
   components: {
@@ -72,7 +72,7 @@ Add the following tag(s) after the Quasar ones:
 ```html
 <body>
   <!-- at end of body, AFTER Quasar script(s): -->
-  <script src="https://cdn.jsdelivr.net/npm/quasar-ui-quasar-ui-firebase/dist/index.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar-ui-firebase/dist/index.umd.min.js"></script>
 </body>
 ```
 

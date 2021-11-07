@@ -11,7 +11,7 @@
         />
 
         <q-toolbar-title>
-          quasar-ui-quasar-ui-firebase v{{ version }}
+          quasar-ui-firebase v{{ version }}
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>

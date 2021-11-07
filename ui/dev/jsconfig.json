@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    // This must be specified if "paths" is set
+    "baseUrl": ".",
+    // Relative to "baseUrl"
+    "paths": {
+      "ui/*": [
+        "../"
+      ],
+      "defineProps$": [
+        "node_modules/vue/dist/vue.runtime.esm-bundler.js"
+      ]
+    }
+  }
+}

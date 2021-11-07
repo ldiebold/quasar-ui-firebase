@@ -3,9 +3,9 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const rollup = require('rollup')
 const uglify = require('uglify-js')
-const buble = require('@rollup/plugin-buble')
 const json = require('@rollup/plugin-json')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const vuePlugin = require('rollup-plugin-vue')
 const replace = require('@rollup/plugin-replace')
 
 const { version } = require('../package.json')
@@ -17,17 +17,15 @@ const rollupPlugins = [
   replace({
     preventAssignment: false,
     values: {
-      __UI_VERSION__: `'${ version }'`
+      __UI_VERSION__: `'${version}'`
     }
   }),
   nodeResolve({
     extensions: ['.js'],
     preferBuiltins: false
   }),
-  json(),
-  buble({
-    objectAssign: 'Object.assign'
-  })
+  vuePlugin(),
+  json()
 ]
 
 const builds = [
@@ -90,18 +88,18 @@ build(builds)
  * Helpers
  */
 
-function pathResolve (_path) {
+function pathResolve(_path) {
   return path.resolve(__dirname, _path)
 }
 
 // eslint-disable-next-line no-unused-vars
-function addAssets (builds, type, injectName) {
+function addAssets(builds, type, injectName) {
   const
     files = fs.readdirSync(pathResolve('../../ui/src/components/' + type)),
-    plugins = [ buble(bubleConfig) ],
+    plugins = [buble(bubleConfig)],
     outputDir = pathResolve(`../dist/${type}`)
 
-    fse.mkdirp(outputDir)
+  fse.mkdirp(outputDir)
 
   files
     .filter(file => file.endsWith('.js'))
@@ -126,16 +124,25 @@ function addAssets (builds, type, injectName) {
     })
 }
 
-function build (builds) {
+function build(builds) {
   return Promise
     .all(builds.map(genConfig).map(buildEntry))
     .catch(buildUtils.logError)
 }
 
-function genConfig (opts) {
+function genConfig(opts) {
   Object.assign(opts.rollup.input, {
     plugins: rollupPlugins,
-    external: [ 'vue', 'quasar' ]
+    external: [
+      'vue',
+      'quasar',
+      'firebase',
+      'firebase/auth',
+      'vue-router',
+      'firebase/app',
+      'firebase/firestore',
+      '@vueuse/core'
+    ]
   })
 
   Object.assign(opts.rollup.output, {
@@ -146,12 +153,12 @@ function genConfig (opts) {
   return opts
 }
 
-function addExtension (filename, ext = 'min') {
+function addExtension(filename, ext = 'min') {
   const insertionPoint = filename.lastIndexOf('.')
   return `${filename.slice(0, insertionPoint)}.${ext}${filename.slice(insertionPoint)}`
 }
 
-function buildEntry (config) {
+function buildEntry(config) {
   return rollup
     .rollup(config.rollup.input)
     .then(bundle => bundle.generate(config.rollup.output))
@@ -193,7 +200,7 @@ function buildEntry (config) {
     })
 }
 
-function injectVueRequirement (code) {
+function injectVueRequirement(code) {
   // eslint-disable-next-line
   const index = code.indexOf(`Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue`)
 

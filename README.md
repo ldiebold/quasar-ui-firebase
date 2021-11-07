@@ -1,5 +1,5 @@
-<img src="https://img.shields.io/npm/v/quasar-ui-quasar-ui-firebase.svg?label=quasar-ui-quasar-ui-firebase">
-<img src="https://img.shields.io/npm/v/quasar-app-extension-quasar-ui-firebase.svg?label=quasar-app-extension-quasar-ui-firebase">
+<img src="https://img.shields.io/npm/v/quasar-ui-firebase.svg?label=quasar-ui-firebase">
+<img src="https://img.shields.io/npm/v/quasar-app-extension-firebase.svg?label=quasar-app-extension-firebase">
 
 Compatible with Quasar UI v2 and Vue 3.
 
