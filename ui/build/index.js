@@ -9,6 +9,8 @@ console.log()
 require('./script.app-ext.js').syncAppExt()
 require('./script.clean.js')
 
+require('./copy-templates.js')
+
 console.log(` 📦 Building ${green('v' + require('../package.json').version)}...\n`)
 
 createFolder('dist')

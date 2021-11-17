@@ -13,9 +13,9 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
-    "quasar": "^2.0.0",
     "firebase": "^9.3.0",
-    "firebase-composables": "^1.0.0-alpha.13"
+    "firebase-composables": "^1.0.0-alpha.13",
+    "quasar": "^2.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",

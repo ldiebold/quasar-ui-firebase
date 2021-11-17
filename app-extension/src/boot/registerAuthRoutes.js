@@ -1,41 +1,36 @@
 import { boot } from 'quasar/wrappers'
-import { redirectIfAuthenticated, redirectIfUnauthenticated } from 'firebase-composables'
+import { useAuthenticatedRedirector, useUnauthenticatedRedirector } from 'firebase-composables'
+import { Loading } from 'quasar'
 
-const publicRoutes = [
-  'register',
-  'login'
-]
+export default boot(({ router, app }) => {
+  const authenticatedRedirector = useAuthenticatedRedirector('/dashboard', router)
+  const unauthenticatedRedirector = useUnauthenticatedRedirector('/login', router)
 
-const authOnlyRoutes = [
-  '/'
-]
+  authenticatedRedirector.onChecked.value = () => Loading.hide()
+  unauthenticatedRedirector.onChecked.value = () => Loading.hide()
 
-export default boot(({ router }) => {
+  router.beforeEach((to, from) => {
+    if (to.meta.authOnly) {
+      Loading.show()
+      unauthenticatedRedirector.execOnAuthStateEnsured()
+    }
+
+    if (to.meta.unauthOnly) {
+      authenticatedRedirector.execOnAuthStateEnsured()
+    }
+  })
+
   router.addRoute('/', {
     name: 'firebase.register',
     path: '/register',
-    component: () => import('quasar-ui-firebase/src/components/FirebaseRegisterPage.vue')
+    meta: { unauthOnly: true },
+    component: () => import('pages/firebase/FirebaseRegisterPage.vue')
   })
 
   router.addRoute('/', {
     name: 'firebase.login',
     path: '/login',
-    component: () => import('quasar-ui-firebase/src/components/FirebaseSignInPage.vue')
-  })
-
-  router.beforeEach(route => {
-    if (
-      publicRoutes.includes(route.name) ||
-      publicRoutes.includes(route.path)
-    ) {
-      redirectIfAuthenticated('/')
-    }
-
-    if (
-      authOnlyRoutes.includes(route.name) ||
-      authOnlyRoutes.includes(route.path)
-    ) {
-      redirectIfUnauthenticated('/login')
-    }
+    meta: { unauthOnly: true },
+    component: () => import('pages/firebase/FirebaseSignInPage.vue')
   })
 })

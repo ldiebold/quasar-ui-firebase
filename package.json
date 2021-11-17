@@ -8,7 +8,9 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "dev": "cd ./test-app && yarn dev",
+    "build": "cd ./ui && yarn build"
   },
   "workspaces": [
     "ui",

@@ -134,6 +134,7 @@ function genConfig(opts) {
   Object.assign(opts.rollup.input, {
     plugins: rollupPlugins,
     external: [
+      'firebase-actions',
       'vue',
       'quasar',
       'firebase',

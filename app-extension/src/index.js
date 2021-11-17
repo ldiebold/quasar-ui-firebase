@@ -13,6 +13,8 @@ function extendConf (conf) {
 
   // make sure app extension files & ui package gets transpiled
   conf.build.transpileDependencies.push(/quasar-app-extension-firebase[\\/]src/)
+
+  conf.framework.plugins.push('Loading')
 }
 
 module.exports = function (api) {
@@ -27,4 +29,9 @@ module.exports = function (api) {
 
   // We extend /quasar.conf.js
   api.extendQuasarConf(extendConf)
+
+  // Add webpack alias for firebase-actions
+  api.chainWebpack((chain) => {
+    chain.resolve.alias.set('firebase-actions', api.resolve.src('actions/firebase'))
+  })
 }

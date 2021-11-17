@@ -1,5 +1,5 @@
 export default {
-  config: {
+  credentials: {
     apiKey: 'AIzaSyD1R9dykDYOG-5gh7ZnrxnJRSJLRDJd7rE',
     authDomain: 'quasarv2-firebase.firebaseapp.com',
     projectId: 'quasarv2-firebase',

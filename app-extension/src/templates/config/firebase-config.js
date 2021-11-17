@@ -1,5 +1,5 @@
 export default {
-  config: {
+  credentials: {
     apiKey: 'XXXXXXXXXXX',
     authDomain: 'XXXXXXXXXXX',
     projectId: 'XXXXXXXXXXX',

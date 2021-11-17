@@ -4,7 +4,11 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/UserDashboard.vue') }
+      {
+        path: 'dashboard',
+        component: () => import('../pages/UserDashboard.vue'),
+        meta: { authOnly: true }
+      }
     ]
   },
 
@@ -12,7 +16,7 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('../pages/Error404.vue')
   }
 ]
 

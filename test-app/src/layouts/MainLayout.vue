@@ -46,10 +46,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { redirectIfUnauthenticated } from 'firebase-composables'
 import { FirebaseSignOutButton } from 'quasar-ui-firebase'
-
-redirectIfUnauthenticated('/login')
 
 const leftDrawerOpen = ref(false)
 

@@ -9,6 +9,7 @@
 /* eslint-env node */
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers')
+const path = require('path')
 
 module.exports = configure(function (ctx) {
   return {
@@ -69,6 +70,15 @@ module.exports = configure(function (ctx) {
       chainWebpack (chain) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }])
+
+        chain.resolve.alias
+          .set('firebase-actions', path.resolve(__dirname, '../ui/src/actions/firebase'))
+
+        chain.resolve.alias
+          .set('components', path.resolve(__dirname, '../ui/src/components'))
+
+        chain.resolve.alias
+          .set('pages', path.resolve(__dirname, '../ui/src/pages'))
       }
     },
 
@@ -76,7 +86,7 @@ module.exports = configure(function (ctx) {
     devServer: {
       https: false,
       port: 8080,
-      open: true // opens browser window automatically
+      open: false // opens browser window automatically
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
