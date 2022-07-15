@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-firebase",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "description": "Simple firebase integration with the Quasar Framework",
   "author": "luke@ldiebold.com",
   "license": "MIT",
